@@ -1,0 +1,88 @@
+Software DownLoad
+Ref:- https://kafka.apache.org/dyn/closer.cgi?path=/kafka/1.0.1/kafka-1.0.1-src.tgz
+
+
+
+Use the terminal
+1.Start The Zookeeper Server
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>zookeeper-server-start.bat E:\Kafka-software\kafka_2.13-3.3.2\config\zookeeper.properties
+
+2.Start The Kafka Server
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-server-start.bat  E:\Kafka-software\kafka_2.13-3.3.2\config\server.properties
+
+3.Create Topics
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-topics --create --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1  --topic produce1
+
+4.Check the Topic List
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-topics --bootstrap-server localhost:9092 -list
+
+5.Describe The Topic Details
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-topics --bootstrap-server localhost:9092 --describe --topic produce1
+
+6.Run Producer in Command Prompt
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-console-producer.bat --broker-list localhost:9092 --topic produce1
+
+7.offsetExplorer -- is use for check the message details and topic name ,partition details
+
+8. If we want to send the file to consumer like below we need to send
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-console-producer.bat --broker-list localhost:9092 --topic produce1  E:\Kafka-software\convertcsv.csv
+
+9.Run Consumer in Command Prompt
+E:\Kafka-software\kafka_2.13-3.3.2\bin\windows>kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic produce1 --from-beginning
+
+9.Without Use the Zookeeper will is kafka working
+https://kafka.apache.org/quickstart
+
+Kafka with KRaft(Without zookeeper will work)
+---------------------
+Kafka can be run using KRaft mode using local scripts and downloaded files or the docker image.
+Follow one of the sections below but not both to start the kafka server.
+
+Steps below
+----------------
+1.Generate a Cluster UUID
+$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+
+2.Format Log Directories
+$ bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+
+3.Start the Kafka Server
+$ bin/kafka-server-start.sh config/kraft/server.properties
+
+========================================
+Testing:-
+Produce a message now
+
+broweser         :      localhost:9091/publish/Viewers
+   for json   >>>>>>    localhost:9091/publishJson
+
+E:\KAFKA_SOFTWRAE\kafka_2.12-3.0.1\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+Consume a message(some case  its not working try with below one )
+
+E:\KAFKA_SOFTWRAE\kafka_2.12-3.0.1\bin\windows\kafka-console-consumer.bat --zookeeper localhost:2181 --topic test
+
+
+New for consumer (for testing the message received in cosumer) 
+E:\KAFKA_SOFTWRAE\kafka_2.12-3.0.1\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test
+
+
+==============================================================================================================================================================
+
+keytool -genkey -alias spring-https -storetype JKS -keyalg RSA -keysize 2048 -validity 365 -keystore javatechie.JKS
+zookeeper-server-start.bat  E:\KAFKA_SOFTWRAE\kafka_2.12-3.0.1\config\ zookeeper.properties
+
+
+Created Topic
+--------------------
+1.produce1
+
+
+
+
+
+
+
+
+
+
