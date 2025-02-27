@@ -2,21 +2,19 @@
 
 # Kafka flavor   
 1.Opensource:
-
-open bargain kafka then 
 2.Commercial Distribution
 3.Managed Kafka Service
 
 # Technology stack is
-| Technology     | depedency |
-|:---------------|-----------|
-| 1.JDK 17       | JDK       |
-| 2.Springboot   | 3.2       |
-| 3.kafka        | 2.x       |
-| 4.Dev Template |           |
+| Technology     | dependency |
+|:---------------|------------|
+| 1.JDK 17       | JDK        |
+| 2.Springboot   | 3.2        |
+| 3.kafka        | 2.x        |
+| 4.Dev Template |            |
 
 # What is Kafka
-Apache Kafka is publish-subscribe based fault tolerant messaging system. It is fast, scalable and distributed by design.
+Apache Kafka is publish-subscribe based fault tolerance messaging system. It is fast, scalable and distributed by design.
 
 It was initially thought of as a message queue and open-sourced by LinkedIn in 2011. Its community evolved Kafka to provide key capabilities:
 Publish and Subscribe to streams of records, like a message queue.
@@ -25,7 +23,7 @@ Stream processing with Kafka Streams API, enables complex aggregations or joins 
 
 Traditional messaging models are queue and publish-subscribe. In a queue, each record goes to one consumer. In publish-subscribe, the record is received by all consumers.
 
-# Pros of Kafka
+# Advantages of Kafka
 
 # Loose coupling 
 Neither service knows about each other regarding data update matters.
@@ -43,19 +41,3 @@ The developer needs to have a deep understanding of the message flow as its stri
 
 # Ref::- http://kafka.apache.org/intro
 
-# Software Required for local setup
-
-# Start Zookeeper 
-zookeeper-server-start.bat D:\DEV-SOFTWARES\kafka_2.12-1.1.0\config\zookeeper.properties
-
-# Start Kafka Server
-kafka-server-start.bat D:\DEV-SOFTWARES\kafka_2.12-1.1.0\config\server.properties
-
-# Create New Topic
-kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 -topic javatechie
-
-# Produce New Message
-kafka-console-producer.bat --broker-list localhost:9092 --topic javatechie
-
-# Consume a Message
-kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic javatechie

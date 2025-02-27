@@ -41,7 +41,7 @@ Follow one of the sections below but not both to start the kafka server.
 Steps below
 ----------------
 1.Generate a Cluster UUID
-$ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
+E:\Kafka-software\kafka_2.13-3.3.2> $ KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
 
 2.Format Log Directories
 $ bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
@@ -52,9 +52,13 @@ $ bin/kafka-server-start.sh config/kraft/server.properties
 ========================================
 Testing:-
 Produce a message now
+Browser:-
+http://localhost:9091/publish/Viewers
+http: localhost:9091/publishJson
 
-broweser         :      localhost:9091/publish/Viewers
-   for json   >>>>>>    localhost:9091/publishJson
+Post man:-
+GET: http://localhost:9091/publishJson
+GET :http://localhost:9091/publish/kolanji
 
 E:\KAFKA_SOFTWRAE\kafka_2.12-3.0.1\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
 
