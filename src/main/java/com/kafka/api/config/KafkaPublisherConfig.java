@@ -14,6 +14,10 @@ import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @Configuration
 public class KafkaPublisherConfig {
+    @Bean
+    public KafkaTemplate<String, Object> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
 
     @Bean
     public ProducerFactory<String, Object> producerFactory() {
@@ -24,9 +28,5 @@ public class KafkaPublisherConfig {
         return new DefaultKafkaProducerFactory<String, Object>(configs);
     }
 
-    @Bean
-    public KafkaTemplate<String, Object> kafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
-    }
 
 }
